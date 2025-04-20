@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Kualitas Udara RTH Pekanbaru</title>
+    <style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('assets/images/bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+    margin: 0;
+    padding-top: 30px;
+    overflow-x: hidden;
+}
+
+/* Container for center alignment */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Title and Subtitle */
+.title {
+    text-align: center;
+    color: #2d6a4f;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-out;
+    padding-top: 20px;  /* Memberi ruang antara navbar dan judul */
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2d6a4f;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f1c40f;
+}
+
+/* Hamburger Menu for Mobile */
+.toggle-btn {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #2d6a4f;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links li {
+        text-align: center;
+    }
+
+    .navbar.active .nav-links {
+        display: flex;
+    }
+
+    .navbar .toggle-btn {
+        display: block;
+    }
+}
+
+/* Monitoring Section */
+.monitoring {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+    animation: fadeIn 2.5s ease-out;
+}
+
+/* Card Styling */
+.card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.card div {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Card Solid Colors */
+.red {
+    background-color: #e57373;
+}
+
+.blue {
+    background-color: #64b5f6;
+}
+
+.purple {
+    background-color: #ba68c8;
+}
+
+.pink {
+    background-color: #f06292;
+}
+
+.green {
+    background-color: #81c784;
+}
+
+.orange {
+    background-color: #ffb74d;
+}
+
+/* Centering for Kelembapan and Status */
+.green {
+    grid-column: 1 / 3; /* Membuat kelembapan mengambil lebar penuh */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.orange {
+    grid-column: 1 / 3; /* Membuat status mengambil lebar penuh */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <!-- <div class="logo">
+      <img src="assets/logo.png" alt="Logo" />
+      <span>Pakcui</span>
+    </div> -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="realtime.html">Real-Time</a></li>
+      <li><a href="grafik.html">Grafik</a></li>
+    </ul>
+    <button class="toggle-btn">&#9776;</button>
+  </nav>
+
+  <!-- ✅ Container -->
+  <div class="container">
+    <h1 class="title">MONITORING KUALITAS UDARA RTH PEKANBARU</h1>
+    <h2 class="subtitle">Monitoring Realtime</h2>
+
+    <!-- ✅ Monitoring Cards -->
+    <div class="monitoring">
+      <div class="card red">
+        <h3>PM 2.5</h3>
+        <div id="pm25">Loading...</div>
+      </div>
+      <div class="card blue">
+        <h3>KADAR ASAP</h3>
+        <div id="kadarAsap">Loading...</div>
+      </div>
+      <div class="card purple">
+        <h3>KARBON DIOKSIDA</h3>
+        <div id="karbonDioxida">Loading...</div>
+      </div>
+      <div class="card pink">
+        <h3>SUHU</h3>
+        <div id="suhu">Loading...</div>
+      </div>
+      <div class="card green">
+        <h3>KELEMBAPAN</h3>
+        <div id="kelembapan">Loading...</div>
+      </div>
+      <div class="card orange">
+        <h3>STATUS</h3>
+        <div id="status">Loading...</div>
+      </div>
+    </div>
+  </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
