@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Monitoring Terupdate</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('assets/images/bg.webp');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d6a4f;
+      padding: 10px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #f1c40f;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2d6a4f;
+      margin: 30px 0 10px;
+    }
+
+    .table-container {
+      max-width: 95%;
+      margin: 20px auto;
+      overflow-x: auto;
+      overflow-y: auto;
+      max-height: 500px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #2d6a4f;
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+
+    tr:hover {
+      background-color: #e1f5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <div class="logo"><strong>Pakcoy</strong></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="realtime.html">Real-Time</a></li>
+      <li><a href="grafik.html">Grafik</a></li>
+      <li><a href="data.html">Data</a></li>
+    </ul>
+  </nav>
+
+  <h1>Data Monitoring Terupdate</h1>
+
+  <div class="table-container">
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>PM2.5</th>
+          <th>Kadar Asap</th>
+          <th>Karbon Dioksida</th>
+          <th>Suhu</th>
+          <th>Kelembapan</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data akan di-inject lewat JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    fetch('php/get_chart_data.php')
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector('#dataTable tbody');
+
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.tanggal}</td>
+            <td>${item.pm25}</td>
+            <td>${item.kadar_asap}</td>
+            <td>${item.karbon_dioxida}</td>
+            <td>${item.suhu}</td>
+            <td>${item.kelembapan}</td>
+            <td>${item.status}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      })
+      .catch(err => {
+        console.error("Gagal mengambil data:", err);
+      });
+  </script>
+
+</body>
+</html>

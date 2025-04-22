@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grafik Monitoring Bulanan</title>
+  <title>Grafik | Monitoring Kualitas Udara RTH Pekanbaru</title>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <style>
     * {
@@ -22,51 +22,28 @@
 
     /* Navbar Styling */
     .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #2d6a4f;
-        padding: 10px 20px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .navbar .logo {
-        display: flex;
-        align-items: center;
-        color: #fff;
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-
-    .navbar .logo img {
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d6a4f;
+      padding: 10px 20px;
+      color: white;
     }
 
     .nav-links {
-        list-style-type: none;
-        display: flex;
-        gap: 20px;
-    }
-
-    .nav-links li {
-        display: inline;
+      display: flex;
+      gap: 20px;
+      list-style: none;
     }
 
     .nav-links a {
-        text-decoration: none;
-        color: white;
-        font-size: 1.1em;
-        font-weight: 500;
-        transition: color 0.3s ease;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .nav-links a:hover {
-        color: #f1c40f;
+      color: #f1c40f;
     }
 
     .filter-section {
@@ -114,12 +91,13 @@
 <body>
   <!-- ✅ Navbar -->
   <nav class="navbar">
-    <!-- <div class="logo">
-      <strong>Pakcui</strong>
-    </div> -->
+    <div class="logo">
+      <strong>Pakcoy</strong>
+    </div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="realtime.html">Real-Time</a></li>
+      <li><a href="data-updated.html">Data Updated</a></li>
       <li><a href="grafik.html">Grafik</a></li>
     </ul>
   </nav>
