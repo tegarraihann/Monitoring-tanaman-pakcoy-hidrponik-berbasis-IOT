@@ -124,12 +124,10 @@
 
   <!-- ✅ Chart Container -->
   <div class="container">
-    <div id="chart_pm25" class="chart-box"></div>
-    <div id="chart_kadarAsap" class="chart-box"></div>
-    <div id="chart_karbonDioxida" class="chart-box"></div>
     <div id="chart_suhu" class="chart-box"></div>
-    <div id="chart_kelembapan" class="chart-box"></div>
-    <div id="chart_status" class="chart-box"></div>
+    <div id="chart_tds" class="chart-box"></div>
+    <div id="chart_ph" class="chart-box"></div>
+    <div id="chart_tinggi" class="chart-box"></div>
   </div>
 
   <script>
@@ -141,12 +139,10 @@
         .then(data => {
           const categories = data.map(item => item.tanggal);
           const chartParams = [
-            { id: 'chart_pm25', name: 'PM 2.5', field: 'pm25' },
-            { id: 'chart_kadarAsap', name: 'Kadar Asap', field: 'kadar_asap' },
-            { id: 'chart_karbonDioxida', name: 'Karbon Dioksida', field: 'karbon_dioxida' },
-            { id: 'chart_suhu', name: 'Suhu', field: 'suhu' },
-            { id: 'chart_kelembapan', name: 'Kelembapan', field: 'kelembapan' },
-            { id: 'chart_status', name: 'Status', field: 'status' },
+            { id: 'chart_suhu', name: 'suhu', field: 'suhu' },
+            { id: 'chart_tds', name: 'tds', field: 'tds' },
+            { id: 'chart_ph', name: 'ph', field: 'ph' },
+            { id: 'chart_tinggi', name: 'tinggi', field: 'tinggi' },
           ];
 
           chartParams.forEach(param => {

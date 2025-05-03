@@ -37,12 +37,10 @@
             .then(data => {
                 console.log("Data diterima:", data); // tambahkan log debug
     
-                document.getElementById("pm25").innerText = data.pm25 || "Tidak ada data";
-                document.getElementById("kadarAsap").innerText = data.kadar_asap || "Tidak ada data";
-                document.getElementById("karbonDioxida").innerText = data.karbon_dioxida || "Tidak ada data";
                 document.getElementById("suhu").innerText = data.suhu || "Tidak ada data";
-                document.getElementById("kelembapan").innerText = data.kelembapan || "Tidak ada data";
-                document.getElementById("status").innerText = data.status || "Tidak ada data";
+                document.getElementById("tds").innerText = data.tds || "Tidak ada data";
+                document.getElementById("ph").innerText = data.ph || "Tidak ada data";
+                document.getElementById("tinggi").innerText = data.tinggi || "Tidak ada data";
             })
             .catch(error => {
                 console.error("Gagal mengambil data:", error);

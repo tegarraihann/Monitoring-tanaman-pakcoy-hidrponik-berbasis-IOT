@@ -91,8 +91,8 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="realtime.html">Real-Time</a></li>
+      <li><a href="data-updated.html">Data Updated</a></li>
       <li><a href="grafik.html">Grafik</a></li>
-      <li><a href="data.html">Data</a></li>
     </ul>
   </nav>
 
@@ -103,12 +103,10 @@
       <thead>
         <tr>
           <th>Tanggal</th>
-          <th>PM2.5</th>
-          <th>Kadar Asap</th>
-          <th>Karbon Dioksida</th>
           <th>Suhu</th>
-          <th>Kelembapan</th>
-          <th>Status</th>
+          <th>TDS</th>
+          <th>pH</th>
+          <th>Tinggi</th>
         </tr>
       </thead>
       <tbody>
@@ -127,12 +125,10 @@
           const row = document.createElement('tr');
           row.innerHTML = `
             <td>${item.tanggal}</td>
-            <td>${item.pm25}</td>
-            <td>${item.kadar_asap}</td>
-            <td>${item.karbon_dioxida}</td>
             <td>${item.suhu}</td>
-            <td>${item.kelembapan}</td>
-            <td>${item.status}</td>
+            <td>${item.tds}</td>
+            <td>${item.ph}</td>
+            <td>${item.tinggi}</td>
           `;
           tbody.appendChild(row);
         });
